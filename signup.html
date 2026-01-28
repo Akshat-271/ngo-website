@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Stree Shakti Sanghatan</title>
+    <link rel="stylesheet" href="signup.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="signup-body">
+
+    <div class="signup-container">
+        <div class="signup-card">
+            <div class="signup-icon"><img class="logo" src="logo pink.png" alt=""></div>
+
+            <h2>Create an Account</h2>
+            <p class="subtitle">Join us and become a part of our mission</p>
+
+            <form onsubmit="signupUser(event)">
+               <label>Full Name</label>
+               <input type="text" name="name" placeholder="Your Name" required>
+
+                <label>Email</label>
+                <input type="email" name="email" placeholder="you@example.com" required>
+
+                <label>Password</label>
+                <input type="password" name="password" placeholder="********" required>
+
+                <button class="signup-btn">Sign Up</button>
+            </form>
+
+
+            <p class="login-text">
+                Already have an account? <a href="login.html">Sign In</a>
+            </p>
+        </div>
+    </div>
+
+</body>
+<script>
+async function signupUser(event) {
+    event.preventDefault();
+
+    const name = document.querySelector("input[name='name']").value;
+    const email = document.querySelector("input[name='email']").value;
+    const password = document.querySelector("input[name='password']").value;
+
+    const res = await fetch("http://localhost:5000/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password })
+    });
+
+    const data = await res.json();
+    alert(data.message);
+
+    if (data.message === "Signup successful") {
+        window.location.href = "login.html";
+    }
+}
+</script>
+
+</html>

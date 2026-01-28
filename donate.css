@@ -1,0 +1,98 @@
+/* DONATION PAGE */
+
+.donation-page {
+    text-align: center;
+    padding: 120px 20px 80px;
+    background: #f9f2f6;
+    min-height: 80vh;
+}
+
+.donation-page h1 {
+    font-size: 42px;
+    color: #ff4f7b;
+    margin-bottom: 25px;
+}
+
+.donation-intro {
+    font-size: 18px;
+    color: #555;
+    max-width: 750px;
+    margin: 0 auto 50px;
+    line-height: 1.7;
+}
+
+/* QR CARD */
+
+.qr-card {
+    background: #ffffff;
+    width: 340px;
+    margin: 0 auto 35px;
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.qr-card img {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    margin-bottom: 18px;
+}
+
+.qr-text {
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* NOTE */
+
+.donation-note {
+    font-size: 15px;
+    color: #666;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* LOGOUT BUTTON */
+
+.logout-btn {
+    background: #ff4f7b;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.logout-btn:hover {
+    background: #ff2d66;
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+    .qr-card {
+        width: 90%;
+    }
+
+    .donation-page h1 {
+        font-size: 34px;
+    }
+}
+
+.nav-btn {
+    margin-right: 12px;
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #ff4f7b;
+    border: 2px solid #ff4f7b;
+}
+
+.nav-btn:hover {
+    background: #ff4f7b;
+    color: #fff;
+}

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stree Shakti Sanghatan</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <span><img class="logo-icon" src="logo2.jpg" alt=""></span>
+                <span class="logo-text">Stree Shakti Sanghatan</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="membership.html">Membership</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+            <a href="javascript:void(0)" onclick="donateClick()" class="donate-nav-btn">Donate</a>
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="signup.html" class="join-btn">Join Now</a>
+            <a href="dashboard.html" class="dashboard-btn" style="display:none;">Dashboard</a>
+            <a href="#" class="logout-btn" style="display:none;" onclick="logoutUser()">Logout</a>
+
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>
+                Empowering Women, <br>
+                <span class="pink">Building Stronger Communities</span>
+            </h1>
+            <p class="subtext">
+                Join Stree Shakti Sanghatan in our mission to support, uplift, and empower women. 
+                Together, we create opportunities for women to thrive and lead.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="membership.html" class="primary-btn">Become a Member →</a>
+                <a href="about.html" class="secondary-btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    
+<section class="programs-section">
+    <h2 class="section-title">Our Programs</h2>
+    <div class="programs-grid">
+        <div class="program-card">
+            <img src="workshop.jpg" alt="">
+            <h3>Leadership Workshops</h3>
+            <p>Empowering women to lead their communities.</p>
+        </div>
+        <div class="program-card">
+            <img src="training.jpg" alt="">
+            <h3>Entrepreneurship Training</h3>
+            <p>Skills and mentorship for women entrepreneurs.</p>
+        </div>
+        <div class="program-card">
+            <img src="volunteer.jpg" alt="">
+            <h3>Volunteer Programs</h3>
+            <p>Get involved and make a positive impact.</p>
+        </div>
+    </div>
+</section>
+
+
+<section class="achievements-section">
+    <h2 class="section-title">Our Achievements</h2>
+    <p class="section-subtitle">
+        Witness the impact we've made together. Every achievement represents lives changed.
+    </p>
+
+   <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="slide1.jpeg"></div>
+      <div class="swiper-slide"><img src="slide2.jpeg"></div>
+      <div class="swiper-slide"><img src="slide3.jpeg"></div>
+      <div class="swiper-slide"><img src="slide4.jpeg"></div>
+      <div class="swiper-slide"><img src="slide5.jpeg"></div>
+      <div class="swiper-slide"><img src="slide6.jpeg"></div>
+      <div class="swiper-slide"><img src="slide7.jpeg"></div>
+      <div class="swiper-slide"><img src="slide8.jpeg"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+`
+<!-- DONATE BUTTON -->
+<section class="donate-section">
+    <a href="javascript:void(0)" onclick="donateClick()" class="donate-btn">Donate Now</a>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-container">
+
+        <div class="footer-column">
+            <h3>About Us</h3>
+            <p>
+                Stree Shakti Sangathan works to uplift and empower women by promoting their rights,
+                providing support, and creating opportunities for growth, independence, and dignity.
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Contact Info</h3>
+            <ul>
+                <li><i class="fas fa-phone"></i> <a href="tel:+91 9253006677">+91 92530 06677</a></li>
+                <li><i class="fas fa-envelope"></i> <a href="mailto:streeshakti.org.in@gmail.com">streeshakti.org.in@gmail.com</a></li>
+                <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/message/UG5EM7UYXY4PE1" target="_blank">WhatsApp</a></li>
+                <li><i class="fas fa-location-dot"></i> Rohtak, India</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/17kjvWsik4/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/StriShakti369?t=MVIon64vEUJZFMLyKgnoEg&s=09" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/stree_shakti_sangathan?utm_source=qr&igsh=OTZkbHRsMmk5cGRm" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 streesaktisangathan. All rights reserved.
+    </div>
+</footer>
+
+
+
+</body>
+
+<script>
+function updateNavbar() {
+    const user = localStorage.getItem("user");
+
+    const loginBtn = document.querySelector(".login-btn");
+    const joinBtn = document.querySelector(".join-btn");
+    const donateBtn = document.querySelector(".donate-nav-btn");
+    const dashboardBtn = document.querySelector(".dashboard-btn");
+    const logoutBtn = document.querySelector(".logout-btn");
+
+    if (user) {
+        // Logged in
+        if (loginBtn) loginBtn.style.display = "none";
+        if (joinBtn) joinBtn.style.display = "none";
+
+        if (donateBtn) donateBtn.style.display = "block"; // donate stays if logged in
+        if (dashboardBtn) dashboardBtn.style.display = "block";
+
+        if (logoutBtn) logoutBtn.style.display = "block";
+    } else {
+        // Not logged in
+        if (loginBtn) loginBtn.style.display = "block";
+        if (joinBtn) joinBtn.style.display = "block";
+        if (donateBtn) donateBtn.style.display = "block";
+
+        if (dashboardBtn) dashboardBtn.style.display = "none";
+        if (logoutBtn) logoutBtn.style.display = "none";
+    }
+}
+
+// Run on page load
+updateNavbar();
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      centeredSlides: true,
+      loop: true,
+      spaceBetween: 20,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        0: { slidesPerView: 1 },
+        600: { slidesPerView: 2 },
+        950: { slidesPerView: 3 },
+      },
+      on: {
+        slideChangeTransitionStart: function () {
+          this.slides.forEach(slide => {
+            slide.classList.remove('active-slide');
+            slide.classList.add('dimmed-slide');
+          });
+          const active = this.slides[this.activeIndex];
+          if (active) {
+            active.classList.add('active-slide');
+            active.classList.remove('dimmed-slide');
+          }
+        }
+      }
+    });
+
+    // Initial styling
+    swiper.slides.forEach(slide => slide.classList.add('dimmed-slide'));
+    const startActive = swiper.slides[swiper.activeIndex];
+    if (startActive) startActive.classList.add('active-slide');
+  
+</script>
+
+<script>
+function donateClick() {
+    console.log("donateClick() RAN");   // DEBUG 1
+    const user = localStorage.getItem("user");
+
+    if (!user) {
+        console.log("USER NOT LOGGED IN");  // DEBUG 2
+        localStorage.setItem("redirectAfterLogin", "donate.html");
+        console.log("REDIRECT STORED:", localStorage.getItem("redirectAfterLogin")); // DEBUG 3
+        window.location.href = "login.html";
+    } else {
+        console.log("USER LOGGED IN");  // DEBUG 4
+        window.location.href = "donate.html";
+    }
+}
+</script>
+
+
+<script>
+function donateClick() {
+    const userStr = localStorage.getItem("user");
+    const user = userStr ? JSON.parse(userStr) : null;
+
+    if (!user) {
+        localStorage.setItem("redirectAfterLogin", "donate.html");
+        window.location.href = "login.html";
+    } else {
+        window.location.href = "donate.html";
+    }
+}
+
+function updateNavbar() {
+    const navRight = document.getElementById("nav-right");
+    navRight.innerHTML = ""; // clear existing
+
+    const userStr = localStorage.getItem("user");
+    const user = userStr ? JSON.parse(userStr) : null;
+
+    // Donate button always visible
+    const donateBtn = document.createElement("a");
+    donateBtn.href = "javascript:void(0)";
+    donateBtn.className = "donate-nav-btn";
+    donateBtn.innerText = "Donate";
+    donateBtn.addEventListener("click", donateClick);
+
+    if (user && user.id) {
+        // Logged in buttons
+        const dashboardBtn = document.createElement("a");
+        dashboardBtn.href = "dashboard.html";
+        dashboardBtn.className = "dashboard-btn";
+        dashboardBtn.innerText = "Dashboard";
+
+        const logoutBtn = document.createElement("a");
+        logoutBtn.href = "#";
+        logoutBtn.className = "logout-btn";
+        logoutBtn.innerText = "Logout";
+        logoutBtn.addEventListener("click", () => {
+            localStorage.removeItem("user");
+            window.location.href = "index.html";
+        });
+
+        navRight.appendChild(dashboardBtn);
+        navRight.appendChild(donateBtn); // donate in middle
+        navRight.appendChild(logoutBtn);
+    } else {
+        // Not logged in buttons
+        const loginBtn = document.createElement("a");
+        loginBtn.href = "login.html";
+        loginBtn.className = "login-btn";
+        loginBtn.innerText = "Login";
+
+        const joinBtn = document.createElement("a");
+        joinBtn.href = "signup.html";
+        joinBtn.className = "join-btn";
+        joinBtn.innerText = "Join Now";
+
+        navRight.appendChild(loginBtn);
+        navRight.appendChild(joinBtn);
+        navRight.appendChild(donateBtn); // donate at end
+    }
+}
+
+// Call on page load
+document.addEventListener("DOMContentLoaded", updateNavbar);
+</script>
+
+<script>
+function logoutUser() {
+    localStorage.removeItem("user");
+    localStorage.removeItem("redirectAfterLogin");
+    window.location.href = "index.html";
+}
+</script>
+
+
+</html>

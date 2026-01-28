@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* HERO SECTION */
+.about-hero {
+    background-color: #ff4f7b;
+    color: #fff;
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.about-hero h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.about-hero p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* MAIN CONTENT */
+.about-section {
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.about-section h2 {
+    color: #ff4f7b;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-size: 26px;
+}
+
+.about-section p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* LIST STYLING */
+.styled-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.styled-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.styled-list li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #ff4f7b;
+    font-weight: bold;
+}
+
+/* CALL TO ACTION */
+.about-cta {
+    background-color: #fff0f4;
+    border-left: 5px solid #ff4f7b;
+    padding: 25px;
+    margin-top: 50px;
+}
+
+.about-cta h3 {
+    margin-top: 0;
+    color: #ff4f7b;
+}
+
+.about-cta p {
+    margin-bottom: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .about-hero h1 {
+        font-size: 30px;
+    }
+
+    .about-section h2 {
+        font-size: 22px;
+    }
+}

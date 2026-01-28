@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Stree Shakti Sanghatan</title>
+    <link rel="stylesheet" href="dashboard.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<script>
+    // Redirect if user is not logged in
+    if (!localStorage.getItem("user")) {
+        window.location.href = "login.html";
+    }
+</script>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo-box">
+            <span class="heart"><img class="logo" src="logo pink.png" alt=""></span>
+            <h2>Stree Shakti</h2>
+        </div>
+
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a class="active">Dashboard</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Support</a></li>
+        </ul>
+
+        <a href="#" class="logout" id="logoutBtn">Logout</a>
+    </aside>
+
+    <!-- Main Dashboard Area -->
+    <main class="content">
+    <h1 class="title">Dashboard</h1>
+    <p class="subtitle">Updates and your activity</p>
+
+    <!-- Announcements -->
+    <div class="announcement-box">
+        <h2>Announcements</h2>
+            <ul id="announcementList">
+                <li>Loading announcements...</li>
+            </ul>
+
+    </div>
+
+    <!-- Recent Signups -->
+    <div class="recent-activity" style="margin-top:40px;">
+        <h2>Recent Signups</h2>
+        <ul id="recentMembers">
+            <!-- Filled dynamically later -->
+            <li>Loading recent signups...</li>
+        </ul>
+    </div>
+
+    <!-- My Donations -->
+    <div class="notifications" style="margin-top:40px;">
+        <h2>My Donations</h2>
+        <ul id="myDonations">
+            <li>Loading donations...</li>
+        </ul>
+        <p style="font-size:14px;color:#777;margin-top:10px;">
+            *Donation history is updated manually for now
+        </p>
+    </div>
+</main>
+
+
+<script>
+    const ctx = document.getElementById('signupChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+            datasets: [{
+                label: 'New Members',
+                data: [20, 25, 30, 40, 60, 50, 70, 80, 65, 90, 100, 120],
+                borderColor: '#ff4f7b',
+                backgroundColor: 'rgba(255,79,123,0.2)',
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } }
+        }
+    });
+</script>
+
+<script>
+    const logoutBtn = document.getElementById("logoutBtn");
+    logoutBtn.addEventListener("click", () => {
+        // Remove user info
+        localStorage.removeItem("user");
+        // Optionally clear redirectAfterLogin if you want
+        localStorage.removeItem("redirectAfterLogin");
+        // Go to home page
+        window.location.href = "index.html";
+    });
+
+function loadAnnouncements() {
+    fetch("http://localhost:5000/api/announcements")
+        .then(res => res.json())
+        .then(data => {
+            const list = document.getElementById("announcementList");
+            list.innerHTML = "";
+
+            if (data.length === 0) {
+                list.innerHTML = "<li>No announcements yet</li>";
+                return;
+            }
+
+            data.forEach(a => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <strong>${a.title}</strong><br>
+                    ${formatAnnouncementText(a.text)}<br>
+                    <small style="color:#999;">
+                        ${new Date(a.createdAt).toDateString()}
+                    </small>`;
+                list.appendChild(li);
+            });
+        })
+        .catch(err => {
+            document.getElementById("announcementList").innerHTML =
+                "<li>Error loading announcements</li>";
+        });
+}
+
+function formatAnnouncementText(text) {
+    if (!text) return "";
+
+    // Convert URLs to clickable links
+    const withLinks = text.replace(
+        /(https?:\/\/[^\s]+)/g,
+        url => `<a href="${url}" target="_blank" style="color:#ff4f7b;font-weight:600;">${url}</a>`
+    );
+
+    // Convert new lines to <br>
+    return withLinks.replace(/\n/g, "<br>");
+}
+
+
+
+loadAnnouncements();
+
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!user || !user.id) {
+        console.error("User id missing:", user);
+        document.getElementById("myDonations").innerHTML =
+            "<li>User data missing. Please log in again.</li>";
+        return;
+    }
+
+    fetch(`http://localhost:5000/api/donations/user/${user.id}`)
+        .then(res => {
+            if (!res.ok) throw new Error("Failed to load donations");
+            return res.json();
+        })
+        .then(data => {
+            const list = document.getElementById("myDonations");
+            list.innerHTML = "";
+
+            if (data.length === 0) {
+                list.innerHTML = "<li>No donations yet</li>";
+                return;
+            }
+
+            data.forEach(d => {
+                const li = document.createElement("li");
+                li.textContent = `₹${d.amount} – ${new Date(d.createdAt).toDateString()}`;
+                list.appendChild(li);
+            });
+        })
+        .catch(err => {
+            console.error(err);
+            document.getElementById("myDonations").innerHTML =
+                "<li>Error loading donations</li>";
+        });
+});
+</script>
+
+
+
+</body>
+</html>

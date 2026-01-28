@@ -1,0 +1,87 @@
+body.signup-body {
+    background: linear-gradient(to bottom right, #ff88a6, #ff4f7b);
+    font-family: "Inter", sans-serif;
+}
+
+.signup-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-card {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    width: 420px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+.logo{
+    width: 80px;
+}
+
+.signup-icon {
+    background: #ff4f7b;
+    color: white;
+    font-size: 30px;
+    padding: 11px 10px 4px 10px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+h2 {
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-top: 12px;
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e8d3dc;
+    margin-top: 6px;
+    font-size: 15px;
+}
+
+.signup-btn {
+    width: 100%;
+    background: #ff4f7b;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.signup-btn:hover {
+    background: #ff2d66;
+}
+
+.login-text {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.login-text a {
+    color: #ff4f7b;
+    text-decoration: none;
+    font-weight: 600;
+}

@@ -1,0 +1,486 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background: #ffffff;
+    color: #333;
+}
+
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    padding: 11px 24px 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.logo-icon {
+    width: 30px;
+    margin-right: 8px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin-left: 40px;
+}
+
+.nav-links li {
+    margin: 0 14px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #333;
+}
+
+.nav-links a:hover {
+    color: #ff4f7b;
+}
+
+.nav-right a {
+    margin-left: 18px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-btn {
+    padding: 6px 16px;
+    border-radius: 6px;
+    color: #444;
+    border: 1px solid #ddd;
+}
+
+.join-btn {
+    background: #ff4f7b;
+    padding: 8px 18px;
+    border-radius: 6px;
+    color: #fff;
+}
+.donate-nav-btn {
+    padding: 6px 16px;
+    border-radius: 6px;
+    color: #444;
+    border: 1px solid #ddd;
+}
+
+/* HERO SECTION */
+.hero {
+    margin-top: 70px;
+    height: 90vh;
+    background-image: url(back.jpg); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.hero-content {
+    position: relative;
+    text-align: center;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.pink {
+    color: #ff4f7b;
+}
+
+.subtext {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 120px; /* adjust fade strength */
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #ffffff 100%);
+    pointer-events: none;
+}
+
+
+/* BUTTONS */
+.hero-buttons {
+    margin-top: 30px;
+}
+
+.primary-btn {
+    background: #ff4f7b;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-right: 15px;
+}
+
+.secondary-btn {
+    background: #fff;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid #eee;
+    color: #333;
+}
+
+.primary-btn:hover {
+    background: #ff2d66;
+}
+.secondary-btn:hover {
+    background: #f8f8f8;
+}
+
+
+/* ===== ACHIEVEMENTS SECTION ===== */
+
+.achievements-section {
+    padding: 80px 40px;
+    text-align: center;
+    background: #f4f1f3;
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: #555;
+    max-width: 650px;
+    margin: 0 auto 50px;
+}
+
+ .swiper-slide {
+      width: 300px;
+      height: 200px;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.4s, filter 0.4s, opacity 0.4s;
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .active-slide { filter: none; transform: scale(1); opacity: 1; }
+    .dimmed-slide { filter: blur(2px) brightness(0.75); transform: scale(0.92); opacity: 0.75; }
+
+    /* DONATE BUTTON */
+.donate-section {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.donate-btn {
+    display: inline-block;
+    background-color: #ff4f7b;
+    color: #fff;
+    padding: 16px 36px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.donate-btn:hover {
+    background-color: #ff2d66;
+    transform: translateY(-3px);
+}
+
+.programs-section {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 50px;
+}
+
+.programs-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.program-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.program-card img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.program-card h3 {
+    margin-top: 15px;
+    color: #ff4f7b;
+}
+
+.program-card p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+}
+
+.dashboard-btn, .logout-btn, .donate-nav-btn {
+    margin-left: 18px;
+    padding: 6px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.dashboard-btn {
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #444;
+}
+
+.logout-btn {
+    background: #ff4f7b;
+    color: #fff;
+}
+
+.donate-nav-btn {
+    background: #ff4f7b;
+    color: #fff;
+}
+
+.dashboard-btn:hover { background: #f8f8f8; }
+.logout-btn:hover, .donate-nav-btn:hover { background: #ff2d66; }
+
+.nav-right {
+    display: flex;
+    align-items: center;   
+    white-space: nowrap; /* prevents stacking */
+}
+
+.nav-right a {
+    display: inline-block;
+}
+
+/* =====================
+   MOBILE RESPONSIVE FIXES
+   ===================== */
+
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 16px;
+  }
+
+  .nav-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    display: none; /* hide menu for now */
+  }
+
+  .nav-right {
+    width: 100%;
+    margin-top: 10px;
+    justify-content: space-between;
+    white-space: normal; /* IMPORTANT */
+  }
+
+  .nav-right a {
+    margin-left: 0;
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  /* HERO */
+  .hero {
+    height: auto;
+    padding: 80px 0 60px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .subtext {
+    font-size: 15px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    margin: 0;
+    padding: 12px 20px;
+  }
+
+  /* SECTION TITLES */
+  .section-title {
+    font-size: 26px;
+  }
+
+  .section-subtitle {
+    font-size: 15px;
+    padding: 0 10px;
+  }
+
+  /* ACHIEVEMENTS */
+  .achievements-section {
+    padding: 60px 20px;
+  }
+
+  .swiper-slide {
+    width: 100%;
+    height: 180px;
+  }
+
+  /* PROGRAMS */
+  .program-card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* DONATE BUTTON */
+  .donate-btn {
+    font-size: 18px;
+    padding: 14px 28px;
+  }
+}
+
+
+.site-footer {
+    background-color: #ff4f7b;
+    color: #ffffff;
+    padding: 40px 20px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-column h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.footer-column p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.footer-column ul li i {
+    margin-right: 8px;
+}
+
+.footer-column a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.social-icons a:hover {
+    opacity: 0.8;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 15px;
+}

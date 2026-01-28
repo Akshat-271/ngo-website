@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - Stree Shakti Sanghatan</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="donate.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-left">
+        <div class="logo">
+            <span><img class="logo-icon" src="logo2.jpg" alt="Logo"></span>
+            <span class="logo-text">Stree Shakti Sanghatan</span>
+        </div>
+    </div>
+
+    <div class="nav-right" id="nav-right">
+        <!-- Logout button injected by JS -->
+    </div>
+</nav>
+
+<!-- DONATION SECTION -->
+<section class="donation-page">
+    <h1>Support Our Work</h1>
+
+    <p class="donation-intro">
+        Your contribution helps empower women, support grassroots initiatives,
+        and create lasting change in our communities.
+        Every donation matters.
+    </p>
+
+    <div class="qr-card">
+        <!-- Replace this image with your real UPI QR code -->
+        <img src="qr.png" alt="UPI QR Code">
+        <p class="qr-text">Scan this QR code using any UPI app</p>
+    </div>
+
+    <p class="donation-note">
+        📌 <strong>Donation Receipt:</strong><br>
+        If you require a receipt, please mention your <strong>WhatsApp number</strong>
+        in the payment note while donating. We will send your receipt shortly.
+    </p>
+</section>
+
+<script>
+function updateNavbar() {
+    const navRight = document.getElementById("nav-right");
+    navRight.innerHTML = "";
+
+    const userStr = localStorage.getItem("user");
+    const user = userStr ? JSON.parse(userStr) : null;
+
+    if (!user || !user.id) {
+        window.location.href = "login.html";
+        return;
+    }
+
+    // DASHBOARD BUTTON
+    const dashboardBtn = document.createElement("a");
+    dashboardBtn.href = "dashboard.html";
+    dashboardBtn.className = "nav-btn";
+    dashboardBtn.innerText = "Dashboard";
+
+    // LOGOUT BUTTON
+    const logoutBtn = document.createElement("a");
+    logoutBtn.href = "#";
+    logoutBtn.className = "logout-btn";
+    logoutBtn.innerText = "Logout";
+    logoutBtn.onclick = () => {
+        localStorage.removeItem("user");
+        window.location.href = "index.html";
+    };
+
+    navRight.appendChild(dashboardBtn);
+    navRight.appendChild(logoutBtn);
+}
+
+document.addEventListener("DOMContentLoaded", updateNavbar);
+</script>
+
+
+</body>
+</html>

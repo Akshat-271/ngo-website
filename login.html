@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Stree Shakti Sanghatan</title>
+    <link rel="stylesheet" href="login.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="login-body">
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-icon"><img class="logo" src="logo pink.png" alt=""></div>
+
+            <h2>Welcome Back</h2>
+            <p class="subtitle">Sign in to your account to continue</p>
+
+            <form onsubmit="loginUser(event)">
+
+                <label>Email</label>
+                <input type="email" name="email" placeholder="you@example.com" required>
+
+                <label>Password</label>
+                <input type="password" name="password" placeholder="********" required>
+                <p class="forgot-link">
+                   <a href="forgot-password.html">Forgot password?</a>
+                    </p>
+
+                <button class="login-btn">Sign In</button>
+            </form>
+
+            <p class="signup-text">
+                Don't have an account? <a href="signup.html">Sign up</a>
+            </p>
+        </div>
+    </div>
+
+</body>
+<script>
+    console.log("Sending login request for email:", email);
+
+async function loginUser(event) {
+    event.preventDefault();
+
+    const email = document.querySelector("input[name='email']").value;
+    const password = document.querySelector("input[name='password']").value;
+
+    const res = await fetch("http://localhost:5000/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+    });
+
+    const data = await res.json();
+    console.log("LOGIN RESPONSE:", data);
+    alert(data.message);
+
+    if (data.message === "Login successful") {
+        // 🔥 Save USER and TOKEN
+        localStorage.setItem("user", JSON.stringify(data.user));
+        localStorage.setItem("token", data.token);
+
+        // 🔥 Check if user clicked Donate before logging in
+        const redirect = localStorage.getItem("redirectAfterLogin");
+
+        if (redirect) {
+            localStorage.removeItem("redirectAfterLogin");
+            window.location.href = redirect; // Go back to donate.html
+        } else {
+            // ✅ Redirect based on admin field
+            if (data.user.isAdmin) {
+                window.location.href = "admin.html";
+            } else {
+                window.location.href = "dashboard.html";
+            }
+        }
+    }
+}
+</script>
+
+
+
+</html>
