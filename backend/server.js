@@ -17,10 +17,7 @@ app.use(rateLimit({
 
 connectDB();
 
-app.use(cors({
-  origin: "http://localhost:5500",
-  credentials: true
-}));
+app.use(cors());
 
 app.use(express.json());
 
