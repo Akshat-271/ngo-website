@@ -105,7 +105,7 @@
     });
 
 function loadAnnouncements() {
-    fetch("http://localhost:5000/api/announcements")
+    fetch("https://ngo-backend-zmmx.onrender.com/api/announcements")
         .then(res => res.json())
         .then(data => {
             const list = document.getElementById("announcementList");
@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    fetch(`http://localhost:5000/api/donations/user/${user.id}`)
+    fetch(`https://ngo-backend-zmmx.onrender.com/api/donations/user/${user.id}`)
         .then(res => {
             if (!res.ok) throw new Error("Failed to load donations");
             return res.json();

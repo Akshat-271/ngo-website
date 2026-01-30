@@ -90,8 +90,7 @@ router.post("/forgot-password", async (req, res) => {
             to: user.email,
             from: "your-email@gmail.com",
             subject: "Password Reset",
-            text: `Click this link to reset your password: 
-http://localhost:5000/auth/reset-password/${token}`
+            text: `Click this link to reset your password: https://ngo-backend-zmmx.onrender.com/auth/reset-password/${token}`
         };
 
         transporter.sendMail(mailOptions, (err) => {
