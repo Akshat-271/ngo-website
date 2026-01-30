@@ -2,7 +2,7 @@ const auth = require("../middleware/admin");
 const express = require("express");
 const router = express.Router();
 const Donation = require("../models/Donation");
-const User = require("../models/User");
+const User = require("../models/user");
 
 /* ADD DONATION (ADMIN) */
 router.post("/add", async (req, res) => {
