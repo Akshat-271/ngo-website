@@ -1,13 +1,15 @@
-const auth = require("../middleware/admin");
 const express = require("express");
 const router = express.Router();
+
+const auth = require("../middleware/auth");      // ✅ JWT check
+const admin = require("../middleware/admin");   // ✅ admin check
+
 const Donation = require("../models/Donation");
 const User = require("../models/user");
 
-/* ADD DONATION (ADMIN) */
-router.post("/add", async (req, res) => {
-    console.log("DONATION BODY:", req.body);
 
+/* ADD DONATION (ADMIN ONLY) */
+router.post("/add", auth, admin, async (req, res) => {
     try {
         const { email, amount, note } = req.body;
 
@@ -16,10 +18,7 @@ router.post("/add", async (req, res) => {
         }
 
         const user = await User.findOne({ email });
-
-        if (!user) {
-            return res.status(404).json({ message: "User not found" });
-        }
+        if (!user) return res.status(404).json({ message: "User not found" });
 
         const donation = new Donation({
             userId: user._id,
@@ -28,6 +27,7 @@ router.post("/add", async (req, res) => {
         });
 
         await donation.save();
+
         res.json({ message: "Donation added successfully" });
 
     } catch (err) {
@@ -37,17 +37,17 @@ router.post("/add", async (req, res) => {
 });
 
 
-/* GET DONATIONS FOR USER */
+/* GET DONATIONS FOR LOGGED USER */
 router.get("/my", auth, async (req, res) => {
     try {
         const donations = await Donation.find({ userId: req.user.id })
             .sort({ createdAt: -1 });
 
         res.json(donations);
+
     } catch (err) {
         res.status(500).json({ message: "Server error" });
     }
 });
-
 
 module.exports = router;
