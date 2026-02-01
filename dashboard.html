@@ -163,7 +163,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    fetch(`https://ngo-backend-zmmx.onrender.com/api/donations/user/${user.id}`)
+        fetch("https://ngo-backend-zmmx.onrender.com/api/donations/my", {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("token")
+            }
+        })
         .then(res => {
             if (!res.ok) throw new Error("Failed to load donations");
             return res.json();
