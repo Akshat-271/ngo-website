@@ -49,7 +49,7 @@ async function loginUser(event) {
 
     console.log("Sending login request for email:", email);
 
-    const res = await fetch("https://ngo-backend-zmmx.onrender.com/Auth/login", {
+    const res = await fetch("https://ngo-backend-zmmx.onrender.com/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password })

@@ -98,7 +98,11 @@ function addAnnouncement() {
 
     fetch("https://ngo-backend-zmmx.onrender.com/api/announcements/add", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
+
         body: JSON.stringify({ title, text })
     })
     .then(res => res.json())
@@ -123,7 +127,10 @@ function addDonation() {
 
     fetch("https://ngo-backend-zmmx.onrender.com/api/donations/add", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
         body: JSON.stringify({ email, amount, note })
     })
     .then(res => res.json())
@@ -195,7 +202,11 @@ function deleteAnnouncement(id) {
     if (!confirm("Are you sure you want to delete this announcement?")) return;
 
     fetch(`https://ngo-backend-zmmx.onrender.com/api/announcements/${id}`, {
-        method: "DELETE"
+        method: "DELETE",
+        headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + localStorage.getItem("token")
+        }
     })
     .then(res => res.json())
     .then(data => {

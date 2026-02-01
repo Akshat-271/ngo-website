@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const Announcement = require("../models/announcement");
-const admin = require("../middleware/admin");
+const admin = require("../middleware/auth");
 
 /* ADD ANNOUNCEMENT (ADMIN) */
-router.post("/add", admin, async (req, res) => {
+router.post("/add", auth, admin, async (req, res) => {
     try {
         const { title, text } = req.body;
 
@@ -34,7 +34,7 @@ router.get("/", async (req, res) => {
 });
 
 // DELETE ANNOUNCEMENT (ADMIN)
-router.delete("/:id", admin, async (req, res) => {
+router.delete("/:id", auth, admin, async (req, res) => {
     try {
         await Announcement.findByIdAndDelete(req.params.id);
         res.json({ message: "Announcement deleted" });
