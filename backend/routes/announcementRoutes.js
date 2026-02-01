@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const Announcement = require("../models/announcement");
-const admin = require("../middleware/auth");
+const auth = require("../middleware/auth");
+const admin = require("../middleware/admin");
+
 
 /* ADD ANNOUNCEMENT (ADMIN) */
 router.post("/add", auth, admin, async (req, res) => {
